@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ereğli Oto Lastik | Premium Yol Yardım & Lastik Servisi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- ULTRA MODERN RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;      /* Modern indigo */
+            --secondary: #8b5cf6;     /* Purple */
+            --accent: #f59e0b;         /* Amber */
+            --dark: #0f172a;           /* Slate 900 */
+            --light: #f8fafc;          /* Slate 50 */
+            --text: #1e293b;            /* Slate 800 */
+            --text-light: #64748b;      /* Slate 500 */
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient-2: linear-gradient(135deg, #f59e0b, #ef4444);
+            --gradient-3: linear-gradient(135deg, #10b981, #3b82f6);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0,0,0,0.06);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 24px;
+            --border-radius-sm: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- MODERN SCROLLBAR ---------- */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-2);
+        }
+
+        /* ---------- 3D BACKGROUND ---------- */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: var(--light);
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-5%, -5%) scale(1.05); }
+            66% { transform: translate(5%, 5%) scale(0.95); }
+        }
+
+        /* ---------- MODERN LOADER ---------- */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: var(--primary);
+            animation: spin 1.5s infinite;
+        }
+
+        .loader-circle:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-top-color: var(--accent);
+            animation: spin 1s reverse infinite;
+        }
+
+        .loader-circle:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            border-top-color: var(--secondary);
+            animation: spin 2s infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ---------- MODERN NAVBAR ---------- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 0;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-lg);
+            padding: 15px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+
+        .logo-icon i {
+            transform: rotate(-45deg);
+        }
+
+        .logo-icon:hover {
+            transform: rotate(135deg);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--gradient-2);
+            color: white !important;
+            padding: 12px 28px !important;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nav-cta::before {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ---------- MODERN HERO ---------- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: particleMove 20s infinite;
+        }
+
+        .particle:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            background: var(--primary);
+        }
+
+        .particle:nth-child(2) {
+            bottom: 20%;
+            right: 15%;
+            background: var(--accent);
+            width: 300px;
+            height: 300px;
+            animation-delay: -5s;
+        }
+
+        .particle:nth-child(3) {
+            top: 40%;
+            right: 30%;
+            background: var(--secondary);
+            width: 250px;
+            height: 250px;
+            animation-delay: -10s;
+        }
+
+        @keyframes particleMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10%, -10%) scale(1.1); }
+            66% { transform: translate(10%, 10%) scale(0.9); }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-title-line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title-line span {
+            display: block;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title .gradient-text-2 {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: var(--transition);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .hero-card:hover {
+            transform: rotateY(-5deg) rotateX(2deg);
+        }
+
+        .hero-card-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 40px;
+        }
+
+        .hero-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .hero-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .hero-card-phone {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-card-phone:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* ---------- MODERN SECTION HEADER ---------- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* ---------- MODERN SERVICES ---------- */
+        .services {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 30px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 15px;
+            color: var(--accent);
+        }
+
+        /* ---------- MODERN FEATURES ---------- */
+        .features {
+            padding: 120px 0;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(180deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ---------- MODERN LOCATION ---------- */
+        .location {
+            padding: 100px 0;
+            background: var(--gradient-1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .location-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .location-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .location-info p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .location-stats {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .location-stat {
+            text-align: center;
+        }
+
+        .location-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .location-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .location-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .location-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .location-detail i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .map-btn:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ---------- MODERN GALLERY ---------- */
+        .gallery {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 350px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+            color: white;
+            padding: 40px 30px 30px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-overlay p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- MODERN CONTACT ---------- */
+        .contact {
+            padding: 120px 0;
+            background: var(--light);
+            position: relative;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-info {
+            background: var(--gradient-1);
+            color: white;
+            padding: 60px 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-detail h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail p,
+        .contact-detail a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .contact-social a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-social a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            padding: 60px 40px;
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ---------- MODERN FLOATING BUTTONS ---------- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 99;
+        }
+
+        .float-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .float-btn.phone {
+            background: var(--gradient-2);
+        }
+
+        .float-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* ---------- MODERN FOOTER ---------- */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 3px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 10px;
+        }
+
+        .footer-contact p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            width: 30px;
+            color: var(--primary);
+        }
+
+        .footer-contact a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ---------- MODERN RESPONSIVE ---------- */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 3.5rem; }
+            .section-title { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 992px) {
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-text { margin-left: auto; margin-right: auto; }
+            .hero-stats { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-image { max-width: 500px; margin: 0 auto; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                padding: 40px;
+                box-shadow: var(--shadow-2xl);
+                transition: right 0.3s ease;
+                z-index: 100;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title { font-size: 2.8rem; }
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-links h4::after { left: 50%; transform: translateX(-50%); }
+            .footer-contact p { justify-content: center; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .floating-buttons { right: 15px; }
+            .float-btn { width: 60px; height: 60px; font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D BACKGROUND -->
+    <div class="gradient-bg"></div>
+
+    <!-- LOADER -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tire"></i>
+                </div>
+                <span class="logo-text">Ereğli Oto</span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Ana Sayfa</a>
+                <a href="#services" class="nav-link">Hizmetler</a>
+                <a href="#features" class="nav-link">Avantajlar</a>
+                <a href="#gallery" class="nav-link">Galeri</a>
+                <a href="#contact" class="nav-link">İletişim</a>
+                <a href="tel:05529398588" class="nav-link nav-cta">
+                    <i class="fas fa-phone-alt"></i> 0552 939 85 88
+                </a>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i> 7/24 Acil Yol Yardım
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="hero-title-line"><span>Konya Ereğli'de</span></span>
+                    <span class="hero-title-line"><span class="gradient-text">Yol Yardım</span> &</span>
+                    <span class="hero-title-line"><span class="gradient-text-2">Lastik Servisi</span></span>
+                </h1>
+
+                <p class="hero-text">
+                    Yolda kaldığınız her an 7/24 yanınızdayız! Patlayan, inen ya da hasar gören lastikleriniz için hızlı, güvenilir ve profesyonel çözümler.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Yıllık Tecrübe</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7/24</span>
+                        <span class="stat-label">Kesintisiz Hizmet</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30'</span>
+                        <span class="stat-label">Ortalama Varış</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="tel:05529398588" class="btn btn-primary">
+                        <i class="fas fa-phone-alt"></i> Hemen Ara
+                    </a>
+                    <a href="https://wa.me/905529398588" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="hero-card-icon">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3>7/24 Acil Servis</h3>
+                    <p>Karapınar Ereğli Makası'nda 7/24 hizmetinizdeyiz. Hemen arayın, en kısa sürede yanınızda olalım.</p>
+                    <a href="tel:05529398588" class="hero-card-phone">
+                        <i class="fas fa-phone-alt"></i> 0 (552) 939 85 88
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">PREMIUM HİZMETLER</div>
+                <h2 class="section-title">Uzmanlık <span>Alanlarımız</span></h2>
+                <p class="section-subtitle">Konya Ereğli'de profesyonel ekip ve tam donanımlı mobil servis araçlarımızla 7/24 yanınızdayız</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3>Yerinde Lastik Değişimi</h3>
+                    <p>Yolda kaldığınız noktada lastik değişimini anında gerçekleştiriyoruz. Profesyonel ekipmanlarla güvenli müdahale.</p>
+                    <a href="tel:05529398588" class="service-link">
+                        Hemen Ara <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Lastik Tamiri & Yama</h3>
+                    <p>Yama & fitil uygulama ile lastiklerinizi onarıyoruz. Ekonomik ve kalıcı çözümler için hemen arayın.</p>
+                    <a href="tel:05529398588" class="service-link">
+                        Hemen Ara <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Stepne Montajı</h3>
+                    <p>Stepneniz varsa takıyoruz, yoksa geçici çözüm üretiyoruz. En yakın lastikçiye güvenle ulaşmanızı sağlıyoruz.</p>
+                    <a href="tel:05529398588" class="service-link">
+                        Hemen Ara <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>7/24 Acil Mobil Servis</h3>
+                    <p>Gece gündüz, hafta sonu, resmi tatil demeden 7/24 açık telefon hattımızla her an yanınızdayız.</p>
+                    <a href="tel:05529398588" class="service-link">
+                        Hemen Ara <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <div class="features-pattern"></div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">NEDEN BİZ?</div>
+                <h2 class="section-title">Farkımızı <span>Keşfedin</span></h2>
+                <p class="section-subtitle">Konya Ereğli'de güvenilir oto lastik ve yol yardım hizmeti için 5 neden</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Hızlı Ulaşım</h3>
+                    <p>Konya Ereğli merkez ve tüm mahallelerinde en kısa sürede bulunduğunuz konuma ulaşıyoruz.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lira-sign"></i>
+                    </div>
+                    <h3>Uygun Fiyat</h3>
+                    <p>Şeffaf fiyat politikası ile en uygun fiyatları sunuyoruz. Önce fiyat, sonra iş.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Profesyonel Ekip</h3>
+                    <p>Tam donanımlı mobil servis araçlarımız ve uzman personelimiz ile hizmetinizdeyiz.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Bölge Hakimiyeti</h3>
+                    <p>Konya Ereğli ve Karapınar Ereğli Makası'na tam hakimiyet. En kısa yoldan size ulaşıyoruz.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>7/24 Kesintisiz</h3>
+                    <p>Yılın 365 günü, günün 24 saati açık telefon hattımızla her zaman yanınızdayız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+    <section class="location">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-info">
+                    <h2>Karapınar Ereğli Makası</h2>
+                    <p>Konya Ereğli merkez ve tüm mahallelerinde, Karapınar Ereğli Makası bölgesinde 7/24 hizmetinizdeyiz.</p>
+                    
+                    <div class="location-stats">
+                        <div class="location-stat">
+                            <span class="number">6</span>
+                            <span class="label">Mahalle/Bölge</span>
+                        </div>
+                        <div class="location-stat">
+                            <span class="number">25'</span>
+                            <span class="label">Ortalama Varış</span>
+                        </div>
+                        <div class="location-stat">
+                            <span class="number">7/24</span>
+                            <span class="label">Hizmet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-card">
+                    <h3>Hizmet Bölgelerimiz</h3>
+                    
+                    <div class="location-detail">
+                        <i class="fas fa-check"></i>
+                        <span>Konya Ereğli Merkez</span>
+                    </div>
+                    
+                    <div class="location-detail">
+                        <i class="fas fa-check"></i>
+                        <span>Karapınar Ereğli Makası</span>
+                    </div>
+                    
+                    <div class="location-detail">
+                        <i class="fas fa-check"></i>
+                        <span>Tüm Mahalleler ve Bağlı Yollar</span>
+                    </div>
+                    
+                    <a href="https://www.google.com/maps/search/?api=1&query=Karapınar+Ereğli+Makası" target="_blank" class="map-btn">
+                        <i class="fas fa-map-marked-alt"></i> Google Haritalar'da Gör
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">ÇALIŞMALARIMIZ</div>
+                <h2 class="section-title">Son <span>Müdahaleler</span></h2>
+                <p class="section-subtitle">Konya Ereğli'de gerçekleştirdiğimiz başarılı müdahalelerden kareler</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551524165-6b6e5a6166f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Acil yol yardım">
+                    <div class="gallery-overlay">
+                        <h3>Acil Yol Yardımı</h3>
+                        <p>Ereğli çıkışı otoban - 5 dakikada müdahale</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1563720223487-8b4c9b8ad5f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lastik tamiri">
+                    <div class="gallery-overlay">
+                        <h3>Lastik Tamiri</h3>
+                        <p>Profesyonel yama uygulaması - Karapınar Makası</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mobil servis">
+                    <div class="gallery-overlay">
+                        <h3>Mobil Servis</h3>
+                        <p>Tam donanımlı servis aracımız - 7/24 hazır</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gece müdahalesi">
+                    <div class="gallery-overlay">
+                        <h3>Gece Müdahalesi</h3>
+                        <p>7/24 hizmet - Gece 03:00'te acil yardım</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>İletişim</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p><a href="tel:05529398588">0 (552) 939 85 88</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/905529398588">0 (552) 939 85 88</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Hizmet Bölgesi</h4>
+                            <p>Konya Ereğli & Karapınar Ereğli Makası</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Çalışma Saatleri</h4>
+                            <p>7/24 Kesintisiz Hizmet</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Bize Ulaşın</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Adınız Soyadınız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" placeholder="Telefon Numaranız" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Hizmet Türü Seçin</option>
+                                <option value="acil">Acil Yol Yardım</option>
+                                <option value="tamir">Lastik Tamiri</option>
+                                <option value="degisim">Lastik Değişimi</option>
+                                <option value="diger">Diğer</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea placeholder="Konumunuz ve sorununuzu belirtin..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-btn">
+                            <i class="fas fa-paper-plane"></i> Gönder - Hemen Arayalım
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING BUTTONS -->
+    <div class="floating-buttons">
+        <a href="tel:05529398588" class="float-btn phone">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/905529398588" class="float-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Ereğli Oto</a>
+                    <p>Konya Ereğli ve çevresinde 7/24 oto lastik ve yol yardım hizmeti sunuyoruz. Yolda kaldığınız her an yanınızdayız!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Hızlı Linkler</h4>
+                    <a href="#home">Ana Sayfa</a>
+                    <a href="#services">Hizmetler</a>
+                    <a href="#features">Avantajlar</a>
+                    <a href="#gallery">Galeri</a>
+                    <a href="#contact">İletişim</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Hizmetler</h4>
+                    <a href="#">Acil Yol Yardım</a>
+                    <a href="#">Lastik Tamiri</a>
+                    <a href="#">Lastik Değişimi</a>
+                    <a href="#">Stepne Montajı</a>
+                    <a href="#">7/24 Mobil Servis</a>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>İletişim</h4>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:05529398588">0 (552) 939 85 88</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905529398588">WhatsApp</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Konya Ereğli / Karapınar Ereğli Makası</p>
+                    <p><i class="fas fa-clock"></i> 7/24 Kesintisiz Hizmet</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ereğli Oto Lastik & Yol Yardım. Tüm hakları saklıdır.</p>
+                <p style="margin-top: 10px;">Konya Ereğli oto lastik yol yardım denildiğinde akla gelen ilk adres!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // LOADER
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // NAVBAR SCROLL
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // MOBILE MENU
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // CLOSE MENU ON LINK CLICK
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // ACTIVE LINK
+        function setActiveLink() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // PHONE CALL HANDLING
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                if (!isMobile) {
+                    e.preventDefault();
+                    const phoneNumber = '05529398588';
+                    
+                    if (confirm(`📞 Telefon Numarası: 0 (552) 939 85 88\n\nBu numarayı telefonunuzdan arayabilirsiniz.\n\nNumarayı panoya kopyalamak ister misiniz?`)) {
+                        navigator.clipboard.writeText(phoneNumber)
+                            .then(() => alert('✅ Numara panoya kopyalandı!'))
+                            .catch(() => alert('Numara: 0 (552) 939 85 88'));
+                    }
+                }
+            });
+        });
+
+        // WHATSAPP
+        document.querySelectorAll('.float-btn.whatsapp, .btn-secondary[href*="wa.me"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const message = "Merhaba, Konya Ereğli'de yol yardım ve lastik servisi hakkında bilgi almak istiyorum.";
+                const url = `https://wa.me/905529398588?text=${encodeURIComponent(message)}`;
+                window.open(url, '_blank');
+            });
+        });
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // FORM SUBMIT
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = this.querySelector('input[type="text"]').value;
+                const phone = this.querySelector('input[type="tel"]').value;
+                const service = this.querySelector('select').value;
+                const message = this.querySelector('textarea').value;
+                
+                alert(`Sayın ${name}, talebiniz alındı!\n\n5 dakika içinde sizi arayacağız: ${phone}`);
+                
+                // WhatsApp mesajı oluştur
+                const whatsappMessage = `Merhaba, ${name} - Telefon: ${phone}\nHizmet: ${service}\nMesaj: ${message}`;
+                const whatsappUrl = `https://wa.me/905529398588?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                // İsteğe bağlı WhatsApp'a yönlendir
+                // window.open(whatsappUrl, '_blank');
+                
+                this.reset();
+            });
+        }
+
+        // ANIMATIONS ON SCROLL
+        const animateElements = document.querySelectorAll('.service-card, .feature-card, .gallery-item, .contact-detail');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animateElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // VISITOR COUNT
+        if (!localStorage.getItem('eregliVisitCount')) {
+            localStorage.setItem('eregliVisitCount', '1');
+        } else {
+            let count = parseInt(localStorage.getItem('eregliVisitCount'));
+            localStorage.setItem('eregliVisitCount', (count + 1).toString());
+        }
+    </script>
+</body>
+</html>
